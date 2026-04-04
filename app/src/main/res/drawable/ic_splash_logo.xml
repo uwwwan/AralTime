@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/background" />
+            <corners android:radius="16dp" />
+        </shape>
+    </item>
+    <item android:gravity="center">
+        <vector xmlns:android="http://schemas.android.com/apk/res/android"
+            android:width="80dp"
+            android:height="80dp"
+            android:viewportWidth="80"
+            android:viewportHeight="80">
+            
+            <!-- Background square with rounded corners -->
+            <path
+                android:fillColor="@color/background"
+                android:pathData="M8,8 L72,8 A8,8 0 0,1 72,16 L72,64 A8,8 0 0,1 64,64 L8,64 A8,8 0 0,1 8,56 L8,16 A8,8 0 0,1 8,8 Z" />
+            
+            <!-- Letter A -->
+            <path
+                android:fillColor="@color/primary_color"
+                android:pathData="M25,35 L25,55 L35,55 L35,45 L30,45 L30,35 Z M40,35 L40,55 L50,55 L50,35 Z M55,35 L55,55 L65,55 L65,35 Z" />
+            
+            <!-- Book icon at base -->
+            <path
+                android:fillColor="@color/primary_color"
+                android:pathData="M20,60 L20,65 Q20,68 23,68 L37,68 Q40,68 40,65 L40,60 Q40,57 37,57 L23,57 Q20,57 20,60 Z" />
+            
+            <!-- Clock with checkmark -->
+            <path
+                android:fillColor="@android:color/transparent"
+                android:strokeColor="@color/primary_color"
+                android:strokeWidth="2"
+                android:pathData="M55,47 m-8,0 a8,8 0 1,1 16,0 a8,8 0 1,1 -16,0" />
+            <path
+                android:fillColor="@color/primary_color"
+                android:pathData="M52,55 L54,57 L58,53" />
+        </vector>
+    </item>
+</layer-list>

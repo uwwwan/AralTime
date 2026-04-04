@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "381965456918",
+    "project_id": "araltime-32a35",
+    "storage_bucket": "araltime-32a35.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381965456918:android:89298a5aab28b793eac737",
+        "android_client_info": {
+          "package_name": "com.company.araltime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "381965456918-mc9697nnqhkkmv528r1tgnqa6ojc5q5o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzSlwYRv0yXNibLl2xIdt14m_SMTDKOZI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "381965456918-mc9697nnqhkkmv528r1tgnqa6ojc5q5o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:381965456918:android:b62853977b98f7cfeac737",
+        "android_client_info": {
+          "package_name": "com.example.araltime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "381965456918-mc9697nnqhkkmv528r1tgnqa6ojc5q5o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzSlwYRv0yXNibLl2xIdt14m_SMTDKOZI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "381965456918-mc9697nnqhkkmv528r1tgnqa6ojc5q5o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="📄 Terms &amp; Conditions"
+            android:textColor="@color/primary_color"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Last updated: April 5, 2026"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <!-- Terms Content -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/card_background">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="1. Acceptance of Terms"
+                    android:textColor="@color/primary_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="By downloading and using AralTime, you agree to be bound by these Terms &amp; Conditions. If you do not agree to these terms, please do not use our app."
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="2dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="2. Description of Service"
+                    android:textColor="@color/primary_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="AralTime is a study session tracking application that helps users monitor their learning progress, set goals, manage reminders, and access premium features."
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="2dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="3. User Accounts"
+                    android:textColor="@color/primary_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="• You must provide accurate information when creating an account\n• You are responsible for maintaining the confidentiality of your account\n• You must notify us immediately of any unauthorized use"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="2dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="4. Privacy and Data"
+                    android:textColor="@color/primary_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="We collect and process your data in accordance with our Privacy Policy. Your study session data, goals, and personal information are stored securely and used to improve our services."
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="2dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="5. Premium Features"
+                    android:textColor="@color/primary_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="• Premium subscriptions are available for a one-time payment of ₱59\n• Points earned from study sessions can provide discounts\n• All premium features are immediately available upon successful payment\n• Subscriptions are non-refundable except as required by law"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="2dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="6. Point System"
+                    android:textColor="@color/primary_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="• Points are earned based on study session duration (1 minute = 30 points)\n• Points can be used to discount premium subscription costs\n• Points have no cash value and cannot be transferred\n• We reserve the right to modify the point system"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="2dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="7. Prohibited Uses"
+                    android:textColor="@color/primary_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="You may not:\n• Use the app for any illegal or unauthorized purpose\n• Attempt to gain unauthorized access to our systems\n• Interfere with or disrupt the app or servers\n• Reproduce, duplicate, or copy any part of the app"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="2dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="8. Intellectual Property"
+                    android:textColor="@color/primary_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="All content, features, and functionality of AralTime are owned by us and are protected by international copyright, trademark, and other intellectual property laws."
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="2dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="9. Disclaimer"
+                    android:textColor="@color/primary_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="The app is provided 'as is' without any warranties, express or implied. We do not guarantee that the app will be error-free or uninterrupted."
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="2dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="10. Limitation of Liability"
+                    android:textColor="@color/primary_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="In no event shall we be liable for any indirect, incidental, special, or consequential damages arising out of or in connection with your use of the app."
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="2dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="11. Changes to Terms"
+                    android:textColor="@color/primary_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting. Your continued use of the app constitutes acceptance of any changes."
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="2dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="12. Contact Information"
+                    android:textColor="@color/primary_color"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="If you have any questions about these Terms &amp; Conditions, please contact us at:\n\nEmail: support@araltime.app\n\nThank you for using AralTime!"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:lineSpacingExtra="2dp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Back Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/primary_color"
+            android:text="Back"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:padding="16dp"
+            app:cornerRadius="12dp" />
+
+    </LinearLayout>
+
+</ScrollView>

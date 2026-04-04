@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.araltime.fragments.HomeFragment"
+        android:label="@string/home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_subjects"
+        android:name="com.example.araltime.fragments.SubjectsFragment"
+        android:label="@string/subjects"
+        tools:layout="@layout/fragment_subjects" />
+
+    <fragment
+        android:id="@+id/nav_history"
+        android:name="com.example.araltime.fragments.HistoryFragment"
+        android:label="@string/history"
+        tools:layout="@layout/fragment_history" />
+
+    <fragment
+        android:id="@+id/nav_goals"
+        android:name="com.example.araltime.fragments.GoalsFragment"
+        android:label="@string/goals"
+        tools:layout="@layout/fragment_goals" />
+
+    <fragment
+        android:id="@+id/nav_reminders"
+        android:name="com.example.araltime.fragments.RemindersFragment"
+        android:label="@string/reminders"
+        tools:layout="@layout/fragment_reminders" />
+
+    <fragment
+        android:id="@+id/nav_overview"
+        android:name="com.example.araltime.fragments.OverviewFragment"
+        android:label="@string/overview"
+        tools:layout="@layout/fragment_overview" />
+
+</navigation>
