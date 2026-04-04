@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.araltime.R
+import com.example.araltime.activities.AddSubjectActivity
 import com.example.araltime.activities.GoalDetailActivity
 import com.example.araltime.activities.LogSessionActivity
 import com.example.araltime.activities.ReminderDetailActivity

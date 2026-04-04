@@ -10,4 +10,5 @@
     <color name="text_secondary">#757575</color>
     <color name="background">#FAFAFA</color>
     <color name="card_background">#FFFFFF</color>
+    <color name="whitish">#F2F1E3</color>
 </resources>

@@ -2,12 +2,13 @@ package com.example.araltime.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Switch
+import android.widget.CompoundButton
 import androidx.appcompat.app.AppCompatActivity
 import com.example.araltime.R
 import com.example.araltime.firebase.FirebaseHelper
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
-import com.google.android.material.switch.MaterialSwitch
 import com.google.android.material.textview.MaterialTextView
 
 class SettingsActivity : AppCompatActivity() {
@@ -20,8 +21,8 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var cardAbout: MaterialCardView
     private lateinit var cardTerms: MaterialCardView
     private lateinit var cardHelp: MaterialCardView
-    private lateinit var switchNotifications: MaterialSwitch
-    private lateinit var switchDarkMode: MaterialSwitch
+    private lateinit var switchNotifications: Switch
+    private lateinit var switchDarkMode: Switch
     private lateinit var btnLogout: MaterialButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -85,12 +86,12 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         // Switch listeners
-        switchNotifications.setOnCheckedChangeListener { _, isChecked ->
+        switchNotifications.setOnCheckedChangeListener { buttonView: CompoundButton, isChecked: Boolean ->
             // Handle notification preference
             showToast("Notifications ${if (isChecked) "enabled" else "disabled"}")
         }
 
-        switchDarkMode.setOnCheckedChangeListener { _, isChecked ->
+        switchDarkMode.setOnCheckedChangeListener { buttonView: CompoundButton, isChecked: Boolean ->
             // Handle dark mode preference (placeholder)
             showToast("Dark mode ${if (isChecked) "enabled" else "disabled"}")
         }
