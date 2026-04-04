@@ -22,29 +22,34 @@
             android:textSize="28sp"
             android:textStyle="bold" />
 
-        <!-- Profile Picture Section -->
+        <!-- Profile Picture -->
         <FrameLayout
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_gravity="center"
             android:layout_marginBottom="32dp">
 
+            <!-- Circle with outline and whitish inner background -->
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/ivProfile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_profile"
+                android:background="#F2F1E3"
                 android:scaleType="centerCrop"
-                app:shapeAppearanceOverlay="@style/ShapeAppearance.App.CircleImageView" />
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.App.CircleImageView"
+                app:strokeColor="#326c49"
+                app:strokeWidth="4dp" />
 
-            <!-- Camera Icon Indicator -->
-            <View
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+            <!-- Camera Icon (Bottom Right) -->
+            <ImageView
+                android:id="@+id/ivCamera"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:layout_gravity="bottom|end"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
+                android:src="@drawable/camera"
                 android:background="@drawable/ic_camera_background"
+                android:padding="6dp"
+                app:tint="@color/primary_color"
                 android:clickable="true"
                 android:focusable="true" />
 

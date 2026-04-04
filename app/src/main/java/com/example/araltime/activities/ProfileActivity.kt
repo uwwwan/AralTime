@@ -22,10 +22,13 @@ import com.google.firebase.firestore.FirebaseFirestore
 import java.io.ByteArrayOutputStream
 import java.text.SimpleDateFormat
 import java.util.*
+import android.widget.ImageView
+import androidx.appcompat.app.AlertDialog
 
 class ProfileActivity : AppCompatActivity() {
 
     private lateinit var ivProfile: ShapeableImageView
+    private lateinit var ivCamera: ImageView                // New: Camera icon
     private lateinit var tvName: MaterialTextView
     private lateinit var tvEmail: MaterialTextView
     private lateinit var tvMemberSince: MaterialTextView
@@ -35,6 +38,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var btnTogglePremium: MaterialButton
     private lateinit var btnChangeProfile: MaterialButton
     private lateinit var btnLogout: MaterialButton
+
     private var currentUser: User? = null
     private var selectedImageUri: Uri? = null
 
@@ -55,6 +59,7 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun initViews() {
         ivProfile = findViewById(R.id.ivProfile)
+        ivCamera = findViewById(R.id.ivCamera)           // Initialize camera icon
         tvName = findViewById(R.id.tvName)
         tvEmail = findViewById(R.id.tvEmail)
         tvMemberSince = findViewById(R.id.tvMemberSince)
@@ -64,20 +69,25 @@ class ProfileActivity : AppCompatActivity() {
         btnTogglePremium = findViewById(R.id.btnTogglePremium)
         btnChangeProfile = findViewById(R.id.btnChangeProfile)
         btnLogout = findViewById(R.id.btnLogout)
-        
-        // Set click listener for the camera icon indicator area
-        ivProfile.setOnClickListener {
-            showImagePickerDialog()
-        }
     }
 
     private fun setupClickListeners() {
+        // Click anywhere on the profile area
+        val profileContainer = ivProfile.parent as android.view.View
+        profileContainer.setOnClickListener {
+            showImagePickerDialog()
+        }
+
+        // Click on camera icon
+        ivCamera.setOnClickListener {
+            showImagePickerDialog()
+        }
+
         btnChangeProfile.setOnClickListener {
             showImagePickerDialog()
         }
 
         btnTogglePremium.setOnClickListener {
-            // Navigate to subscription page
             startActivity(Intent(this, SubscriptionActivity::class.java))
         }
 
@@ -106,25 +116,21 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun populateProfile() {
         currentUser?.let { user ->
-            // Handle both old name field and new firstName/lastName fields
             val displayName = if (user.firstName.isNotEmpty() && user.lastName.isNotEmpty()) {
                 "${user.firstName} ${user.lastName}"
             } else {
                 user.name
             }
-            
+
             tvName.text = displayName
             tvEmail.text = user.email
-            
-            // Set member since date (you can customize this)
+
             val dateFormat = SimpleDateFormat("MMM yyyy", Locale.getDefault())
             tvMemberSince.text = "Member since: ${dateFormat.format(Date())}"
-            
+
             tvCurrentPoints.text = "${user.points} points"
-            
-            // Update progress bar (max 1000 points for demo)
             progressBar.progress = (user.points % 1000).toInt()
-            
+
             if (user.isPremium) {
                 tvPremiumStatus.text = "✨ Premium User"
                 tvPremiumStatus.setTextColor(getColor(R.color.accent_color))
@@ -135,12 +141,11 @@ class ProfileActivity : AppCompatActivity() {
                 tvPremiumStatus.setTextColor(getColor(R.color.text_secondary))
                 btnTogglePremium.text = "Unlock Premium"
                 btnTogglePremium.backgroundTintList = getColorStateList(R.color.accent_color)
-                
-                // Show points progress
+
                 val discountPercent = (user.points / 100).toInt().coerceAtMost(100)
                 tvPremiumStatus.text = "Free User - $discountPercent% discount available"
             }
-            
+
             // Load profile image
             if (user.profileImage.isNotEmpty()) {
                 try {
@@ -148,8 +153,7 @@ class ProfileActivity : AppCompatActivity() {
                     val bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
                     ivProfile.setImageBitmap(bitmap)
                 } catch (e: Exception) {
-                    // Set default image if loading fails
-                    ivProfile.setImageResource(R.drawable.ic_profile)
+                    ivProfile.setImageResource(R.drawable.ic_profile) // fallback
                 }
             } else {
                 ivProfile.setImageResource(R.drawable.ic_profile)
@@ -159,7 +163,7 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun showImagePickerDialog() {
         val options = arrayOf("Take Photo", "Choose from Gallery")
-        val builder = androidx.appcompat.app.AlertDialog.Builder(this)
+        val builder = AlertDialog.Builder(this)
         builder.setTitle("Choose Profile Picture")
         builder.setItems(options) { _, which ->
             when (which) {
@@ -171,7 +175,7 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun checkCameraPermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) 
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
             == PackageManager.PERMISSION_GRANTED) {
             openCamera()
         } else {
@@ -189,14 +193,12 @@ class ProfileActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        when (requestCode) {
-            CAMERA_PERMISSION_REQUEST -> {
-                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    openCamera()
-                } else {
-                    Toast.makeText(this, "Camera permission denied", Toast.LENGTH_SHORT).show()
-                }
-            }
+        if (requestCode == CAMERA_PERMISSION_REQUEST &&
+            grantResults.isNotEmpty() &&
+            grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            openCamera()
+        } else {
+            Toast.makeText(this, "Camera permission denied", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -212,7 +214,7 @@ class ProfileActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        
+
         if (resultCode == RESULT_OK) {
             when (requestCode) {
                 CAMERA_REQUEST_CODE -> {
@@ -235,10 +237,10 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun uploadProfileImage(bitmap: Bitmap) {
         val byteArrayOutputStream = ByteArrayOutputStream()
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, byteArrayOutputStream)
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 70, byteArrayOutputStream)
         val imageBytes = byteArrayOutputStream.toByteArray()
         val encodedImage = Base64.getEncoder().encodeToString(imageBytes)
-        
+
         saveProfileImage(encodedImage)
     }
 
@@ -261,26 +263,6 @@ class ProfileActivity : AppCompatActivity() {
             }
             .addOnFailureListener { exception ->
                 Toast.makeText(this, "Failed to update profile picture: ${exception.message}", Toast.LENGTH_LONG).show()
-            }
-    }
-
-    private fun togglePremiumStatus() {
-        val userId = FirebaseHelper.getCurrentUserId()
-        val newPremiumStatus = !(currentUser?.isPremium ?: false)
-        
-        FirebaseHelper.firestore.collection(FirebaseHelper.USERS_COLLECTION)
-            .document(userId)
-            .update("isPremium", newPremiumStatus)
-            .addOnSuccessListener {
-                Toast.makeText(
-                    this,
-                    if (newPremiumStatus) "Premium enabled! ✨" else "Premium disabled",
-                    Toast.LENGTH_SHORT
-                ).show()
-                loadUserProfile() // Refresh profile
-            }
-            .addOnFailureListener { exception ->
-                Toast.makeText(this, "Failed to update premium status: ${exception.message}", Toast.LENGTH_LONG).show()
             }
     }
 
