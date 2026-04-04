@@ -22,7 +22,7 @@
             android:textStyle="bold"
             android:layout_gravity="center" />
 
-        <!-- Stats Cards -->
+        <!-- Stats Cards Row 1 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -103,6 +103,7 @@
 
         </LinearLayout>
 
+        <!-- Stats Cards Row 2 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -183,7 +184,7 @@
 
         </LinearLayout>
 
-        <!-- Action Cards -->
+        <!-- Actions Section -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -193,6 +194,7 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
+        <!-- User Management Card -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardUserManagement"
             android:layout_width="match_parent"
@@ -245,16 +247,18 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_arrow_forward"
-                    android:tint="@color/text_secondary" />
+                    app:tint="@color/text_secondary" />
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- Analytics Card -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardAnalytics"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
             app:cardCornerRadius="16dp"
             app:cardElevation="4dp"
             app:cardBackgroundColor="@color/card_background"
@@ -302,11 +306,23 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/ic_arrow_forward"
-                    android:tint="@color/text_secondary" />
+                    app:tint="@color/text_secondary" />
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
+
+        <!-- Logout Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:text="Logout"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:padding="16dp"
+            app:cornerRadius="12dp" />
 
     </LinearLayout>
 

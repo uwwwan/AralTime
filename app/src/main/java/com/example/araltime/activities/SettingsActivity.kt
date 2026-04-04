@@ -7,6 +7,7 @@ import android.widget.CompoundButton
 import androidx.appcompat.app.AppCompatActivity
 import com.example.araltime.R
 import com.example.araltime.firebase.FirebaseHelper
+import com.example.araltime.utils.DialogUtils
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textview.MaterialTextView
@@ -98,9 +99,11 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun logoutUser() {
-        FirebaseHelper.auth.signOut()
-        startActivity(Intent(this, LoginActivity::class.java))
-        finish()
+        DialogUtils.showLogoutConfirmation(this) {
+            FirebaseHelper.auth.signOut()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
     }
 
     private fun showToast(message: String) {

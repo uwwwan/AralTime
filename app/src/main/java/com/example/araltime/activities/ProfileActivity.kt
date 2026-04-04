@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat
 import com.example.araltime.R
 import com.example.araltime.firebase.FirebaseHelper
 import com.example.araltime.models.User
+import com.example.araltime.utils.DialogUtils
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textview.MaterialTextView
@@ -267,8 +268,10 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun logoutUser() {
-        FirebaseHelper.auth.signOut()
-        startActivity(Intent(this, LoginActivity::class.java))
-        finish()
+        DialogUtils.showLogoutConfirmation(this) {
+            FirebaseHelper.auth.signOut()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
     }
 }

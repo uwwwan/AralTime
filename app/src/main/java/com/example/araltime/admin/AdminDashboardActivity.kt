@@ -5,7 +5,10 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.araltime.R
+import com.example.araltime.activities.LoginActivity
 import com.example.araltime.firebase.FirebaseHelper
+import com.example.araltime.utils.DialogUtils
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -17,6 +20,7 @@ class AdminDashboardActivity : AppCompatActivity() {
     private lateinit var tvAvgWeeklyHours: TextView
     private lateinit var cardUserManagement: MaterialCardView
     private lateinit var cardAnalytics: MaterialCardView
+    private lateinit var btnLogout: MaterialButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +38,7 @@ class AdminDashboardActivity : AppCompatActivity() {
         tvAvgWeeklyHours = findViewById(R.id.tvAvgWeeklyHours)
         cardUserManagement = findViewById(R.id.cardUserManagement)
         cardAnalytics = findViewById(R.id.cardAnalytics)
+        btnLogout = findViewById(R.id.btnLogout)
     }
 
     private fun setupClickListeners() {
@@ -43,6 +48,14 @@ class AdminDashboardActivity : AppCompatActivity() {
 
         cardAnalytics.setOnClickListener {
             startActivity(Intent(this, AdminAnalyticsActivity::class.java))
+        }
+
+        btnLogout.setOnClickListener {
+            DialogUtils.showLogoutConfirmation(this) {
+                FirebaseHelper.auth.signOut()
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            }
         }
     }
 
